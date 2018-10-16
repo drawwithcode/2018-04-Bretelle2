@@ -32,8 +32,8 @@ function draw() {
      // fill(10)
      // ellipse(mx,my,10)
 
-  if(frameCount<900)  {textSize(30);text('CLICK the BOMB!', 0, 25)}
-  if(frameCount>900&&frameCount<1800)  {text('HINT: the screen goes red whe it TOUCH the other FAKE BOMBS ', 0, 25)}
+  if(frameCount<300)  {textSize(30);text('CLICK the BOMB!', 0, 25)}
+  if(frameCount>300&&frameCount<900)  {text('HINT: the screen goes red whe it TOUCH the other FAKE BOMBS ', 0, 25)}
 
   if (win==true){
       background(0,255,0)
@@ -41,6 +41,13 @@ function draw() {
       textSize(80)
       text('YOU WIN', width-380, height-10)
     }
+  var t = 6000-int(frameCount/30)
+  text(t, width-100, 25)
+
+  if(frameCount>90000) {background(255,0,0)
+  fill(255,255,255)
+  textSize(80)
+  text('YOU LOSE', width-440, height-10)}
 
 }
 
