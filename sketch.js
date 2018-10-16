@@ -38,6 +38,8 @@ function draw() {
     text('the screen goes red when', 0, 52)
     text('the TRUE BOMB touches the others FAKE BOMBS ', 0, 84)
 }
+var t = 6000-int(frameCount/30)
+text(t, width-100, 25)
 
   if (win==true){
       background(0,255,0)
@@ -45,8 +47,6 @@ function draw() {
       textSize(80)
       text('YOU WIN', width-380, height-10)
     }
-  var t = 6000-int(frameCount/30)
-  text(t, width-100, 25)
 
   if(frameCount>90000) {background(255,0,0)
   fill(255,255,255)
