@@ -32,8 +32,12 @@ function draw() {
      // fill(10)
      // ellipse(mx,my,10)
 
-  if(frameCount<300)  {textSize(30);text('CLICK the BOMB!', 0, 25)}
-  if(frameCount>300&&frameCount<900)  {text('HINT: the screen goes red when it TOUCHES the other FAKE BOMBS ', 0, 25)}
+  if(frameCount<100)  {textSize(30);text('CLICK the BOMB!', 0, 25)}
+  if(frameCount>100&&frameCount<900)  {
+    text('HINT: ', 0, 25)
+    text('the screen goes red when', 0, 52)
+    text('the TRUE BOMB touches other FAKE BOMBS ', 0, 84)
+}
 
   if (win==true){
       background(0,255,0)
