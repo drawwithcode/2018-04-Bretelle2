@@ -1,5 +1,5 @@
 var balls = []
-var nB = 4;
+var nB = 8;
 var mx;
 var my;
 var win = false;
