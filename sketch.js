@@ -3,6 +3,7 @@ var nB = 8;
 var mx;
 var my;
 var win = false;
+var tocchi = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -16,10 +17,17 @@ function setup() {
   //myBalls = new Ball(20,20,20,10)
 }
 
+//CLICK
+function mouseClicked() {
+  tocchi++;
+  var d = dist(mx,my,balls[0].x,balls[0].y)
+  if ( d < 80) {win = true }
+}
+
 function draw() {
   mx = mouseX;
   my = mouseY;
-
+// TOCCHI BETWEEN BALLS
   background(255,255,255,30);
   for(var i =1; i<balls.length; i++){
     if (balls[0].intersect(balls[i])) {
@@ -29,36 +37,41 @@ function draw() {
     balls[i].move();
     balls[i].display();}
 
+    //dov'è il mouse?
      // fill(10)
      // ellipse(mx,my,10)
 
-  if(frameCount<100)  {textSize(30);text('CLICK the BOMB!', 0, 25)}
+//testo titolo e spiegazione
+  if(frameCount<100)  {textSize(20);text('FIND & CLICK the BOMB!', 0, 25)}
   if(frameCount>100&&frameCount<900)  {
     text('HINT: ', 0, 25)
+    textSize(20)
     text('the screen goes red when', 0, 52)
-    text('the TRUE BOMB touches the others FAKE BOMBS ', 0, 84)
-}
-var t = 6000-int(frameCount/30)
-text(t, width-100, 25)
-
-  if (win==true){
+    text('the TRUE BOMB touches', 0, 84)
+    text('the others FAKE BOMBS ', 0, 116)
+  }
+//tempo e tocchi
+  var t = 6000-int(frameCount/30)
+  text(t, width-100, height-25)
+  text('tempo:', width-200, height-25)
+  text(tocchi, width-100, 25)
+  text('tocchi:', width-200, 25)
+//WIN and LOSE
+  if (win==true&&tocchi<=5){
       background(0,255,0)
       fill(255,255,255)
       textSize(80)
       text('YOU WIN', width-380, height-10)
     }
 
-  if(frameCount>90000) {background(255,0,0)
+  if(frameCount>90000 || tocchi>5) {background(255,0,0)
   fill(255,255,255)
   textSize(80)
   text('YOU LOSE', width-440, height-10)}
 
 }
 
-function mouseClicked() {
-  var d = dist(mx,my,balls[0].x,balls[0].y)
-  if ( d < 80) {win = true }
-}
+//PALLE
 function Ball(_x,_y,_raggio,_speed,_r,_g,_b){
   this.size = _raggio;
   this.x = _x;
