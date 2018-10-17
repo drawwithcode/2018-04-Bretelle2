@@ -48,7 +48,7 @@ function draw() {
     textSize(20)
     text('the screen goes red when', 0, 52)
     text('the TRUE BOMB touches', 0, 84)
-    text('the others FAKE BOMBS ', 0, 116)
+    text('the others FAKES BOMBS ', 0, 116)
   }
 //tempo e tocchi
   var t = 6000-int(frameCount/30)
